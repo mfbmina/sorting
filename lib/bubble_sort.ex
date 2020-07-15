@@ -8,6 +8,8 @@ defmodule BubbleSort do
   if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm,
   which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.
 
+  For futher info: https://www.geeksforgeeks.org/bubble-sort/
+
   ## Examples
 
       iex> BubbleSort.sort([6, 1, 2, 5, 3, 4])
