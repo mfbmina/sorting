@@ -20,7 +20,7 @@ defmodule SelectionSort do
   defp sort(sorted_array, []), do: sorted_array
 
   defp sort(sorted_array, old_array) do
-    { value, index } = min_value(old_array)
+    {value, index} = min_value(old_array)
 
     new_sorted_array = sorted_array ++ [value]
     new_array = cleanup_array(old_array, index)
