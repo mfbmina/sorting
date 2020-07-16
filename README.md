@@ -7,6 +7,7 @@ Please notice this is a repo used for my studies.
 Algorithms:
 
 * [Bubble Sort](https://github.com/mfbmina/sorting/blob/master/lib/bubble_sort.ex)
+* [Insertion Sort](https://github.com/mfbmina/sorting/blob/master/lib/insertion_sort.ex)
 * [Selection Sort](https://github.com/mfbmina/sorting/blob/master/lib/selection_sort.ex)
 
 ## Setup
