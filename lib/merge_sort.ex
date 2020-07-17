@@ -15,12 +15,11 @@ defmodule MergeSort do
 
   """
   def sort(array) do
-    array_size = length(array)
-
-    case array_size do
-      1 ->
-        Enum.take(array, 1)
+    case array do
+      [_] ->
+        array
       _ ->
+        array_size = length(array)
         half = Kernel.round(array_size / 2)
 
         left = Enum.take(array, half) |> sort
