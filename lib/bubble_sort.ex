@@ -16,6 +16,7 @@ defmodule BubbleSort do
       [1, 2, 3, 4, 5, 6]
 
   """
+
   def sort(array), do: sort(array, 0, 1)
 
   defp sort(array, i, j) do

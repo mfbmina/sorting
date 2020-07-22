@@ -14,6 +14,7 @@ defmodule InsertionSort do
       [1, 2, 3, 4, 5, 6]
 
   """
+
   def sort(array), do: sort([], array)
 
   defp sort(sorted_array, []), do: sorted_array
