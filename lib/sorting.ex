@@ -5,12 +5,12 @@ defmodule Sorting do
 
   @doc """
   You can run benchmarks for the algorithms.
-  Available algs: [:bubble_sort, :insertion_sort, :merge_sort, :selection_sort]
+  Available algs: [:bubble_sort, :insertion_sort, :merge_sort, :selection_sort, :quick_sort]
   Amount should be a non-zero positive integer.
 
   ## Examples
-
-      iex> Sorting.benchmark([:bubble_sort], 10)
+      iex> algs = [:bubble_sort, :insertion_sort, :merge_sort, :selection_sort, :quick_sort]
+      iex> Sorting.benchmark(algs, 10)
       :ok
 
   """
@@ -48,6 +48,13 @@ defmodule Sorting do
     SelectionSort.sort(array)
 
     IO.puts "Selection sort took #{time_diff(time)}ms"
+  end
+
+  def quick_sort(array) do
+    time = DateTime.utc_now
+    QuickSort.sort(array)
+
+    IO.puts "Quick sort took #{time_diff(time)}ms"
   end
 
   defp time_diff(time) do
