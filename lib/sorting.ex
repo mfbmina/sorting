@@ -5,7 +5,7 @@ defmodule Sorting do
 
   @doc """
   You can run benchmarks for the algorithms.
-  Available algs: [:bubble_sort, :insertion_sort, :merge_sort, :selection_sort, :quick_sort]
+  Available algs: [:bubble_sort, :insertion_sort, :merge_sort, :selection_sort, :sleep_sort, :quick_sort]
   Amount should be a non-zero positive integer.
 
   ## Examples
@@ -48,6 +48,13 @@ defmodule Sorting do
     SelectionSort.sort(array)
 
     IO.puts "Selection sort took #{time_diff(time)}ms"
+  end
+
+  def sleep_sort(array) do
+    time = DateTime.utc_now
+    SleepSort.sort(array)
+
+    IO.puts "Sleep sort took #{time_diff(time)}ms"
   end
 
   def quick_sort(array) do

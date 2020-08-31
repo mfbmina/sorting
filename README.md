@@ -10,6 +10,7 @@ Algorithms:
 * [Insertion Sort](https://github.com/mfbmina/sorting/blob/master/lib/insertion_sort.ex)
 * [Merge Sort](https://github.com/mfbmina/sorting/blob/master/lib/merge_sort.ex)
 * [Selection Sort](https://github.com/mfbmina/sorting/blob/master/lib/selection_sort.ex)
+* [Sleep Sort](https://github.com/mfbmina/sorting/blob/master/lib/sleep_sort.ex)
 * [Quick Sort](https://github.com/mfbmina/sorting/blob/master/lib/quick_sort.ex)
 
 ## Setup
