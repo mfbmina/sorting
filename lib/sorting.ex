@@ -16,52 +16,35 @@ defmodule Sorting do
   """
 
   def benchmark(algs, amount) do
+    parent = self()
+
     array = random_array(amount)
     IO.puts "Sorting #{amount} elements"
 
-    algs |> Enum.each(fn alg -> spawn(Sorting, alg, [array]) end)
+    algs |> Enum.each(fn alg -> spawn_link(Sorting, :call, [parent, alg, array]) end)
+
+    algs |> Enum.each(fn _ ->
+      receive do
+        {:ok, str} -> IO.puts str
+      end
+    end)
   end
 
-  def bubble_sort(array) do
+  def call(parent, alg, array) do
+    module_name = alg |> find_module_name
     time = DateTime.utc_now
-    BubbleSort.sort(array)
 
-    IO.puts "Bubble sort took #{time_diff(time)}ms"
+    apply(module_name, :sort, [array])
+
+    send parent, {:ok,  "#{module_name} took #{time_diff(time)}ms"}
   end
 
-  def insertion_sort(array) do
-    time = DateTime.utc_now
-    InsertionSort.sort(array)
+  def find_module_name(alg) do
+    name = alg
+      |> Atom.to_string
+      |> Macro.camelize
 
-    IO.puts "Insertion sort took #{time_diff(time)}ms"
-  end
-
-  def merge_sort(array) do
-    time = DateTime.utc_now
-    MergeSort.sort(array)
-
-    IO.puts "Merge sort took #{time_diff(time)}ms"
-  end
-
-  def selection_sort(array) do
-    time = DateTime.utc_now
-    SelectionSort.sort(array)
-
-    IO.puts "Selection sort took #{time_diff(time)}ms"
-  end
-
-  def sleep_sort(array) do
-    time = DateTime.utc_now
-    SleepSort.sort(array)
-
-    IO.puts "Sleep sort took #{time_diff(time)}ms"
-  end
-
-  def quick_sort(array) do
-    time = DateTime.utc_now
-    QuickSort.sort(array)
-
-    IO.puts "Quick sort took #{time_diff(time)}ms"
+    Module.concat([name])
   end
 
   defp time_diff(time) do
