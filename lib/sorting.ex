@@ -5,7 +5,10 @@ defmodule Sorting do
 
   @doc """
   You can run benchmarks for the algorithms.
-  Available algs: [:bubble_sort, :insertion_sort, :merge_sort, :selection_sort, :sleep_sort, :quick_sort]
+  Available algs: [
+    :bubble_sort, :gnome_sort, :insertion_sort,
+    :merge_sort, :selection_sort, :sleep_sort, :quick_sort
+  ]
   Amount should be a non-zero positive integer.
 
   ## Examples
